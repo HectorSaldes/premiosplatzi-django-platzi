@@ -1,4 +1,17 @@
-<h1>{{question.question_text}}</h1>
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+     <meta charset="UTF-8">
+    <title>Premios Platzi App</title>
+
+    <!--TRAER ARCHIVOS ESTATICOS DESDE LA CARPETA STATICA DE LA APLICACIÓN-->
+    <link rel="stylesheet" href="{% static 'polls/style.css' %}">
+    <link rel="stylesheet" href="{% static 'polls/detail.css' %}">
+    <title>{{question.question_text}}</title>
+</head>
+<body>
+<header>{{question.question_text}}</header>
 <ul>
     {%for choice in question.choice_set.all%}
     {% comment%}
@@ -8,3 +21,5 @@
     {%endfor%}
 </ul>
 <a href="{% url 'polls:detail' question.id %}">¿Te gustaría votar de nuevo?</a>
+</body>
+</html>

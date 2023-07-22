@@ -1,17 +1,17 @@
+{% load static %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <title>Title</title>
+     <meta charset="UTF-8">
+    <title>Premios Platzi App</title>
+
+    <!--TRAER ARCHIVOS ESTATICOS DESDE LA CARPETA STATICA DE LA APLICACIÓN-->
+    <link rel="stylesheet" href="{% static 'polls/style.css' %}">
+    <link rel="stylesheet" href="{% static 'polls/detail.css' %}">
+    <title>{{question.question_text}}</title>
 </head>
 <body>
 
-<!--<h1>{{question.question_text}}</h1>
-<ul>
-  {%for choice in question.choice_set.all%}
-    <li>{{choice.choice_text}}</li>
-  {%endfor%}
-</ul>-->
 
 <form action="{% url 'polls:vote' question.id %}" method="post">
     <!--  EVITAR ATAQUES DE CSRF EN FORM DE TIPO POST    -->

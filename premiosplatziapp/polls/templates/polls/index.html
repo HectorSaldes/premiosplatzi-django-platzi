@@ -1,22 +1,43 @@
+{% load static %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title>Premios Platzi App</title>
+
+    <!--TRAER ARCHIVOS ESTATICOS DESDE LA CARPETA STATICA DE LA APLICACIÓN-->
+    <link rel="stylesheet" href="{% static 'polls/reset.css' %}">
+    <link rel="stylesheet" href="{% static 'polls/style.css' %}">
+
 </head>
 <body>
+<header>Premios Platzi App</header>
+<main>
     {%if latest_question_list %}
-        <ul>
-            {%for question in latest_question_list %}
-                <li>
-                    <a href="{% url 'polls:detail' question.id %}">
-                        {{ question.question_text }}
-                    </a>
-                </li>
-            {%endfor%}
-        </ul>
+    <ul>
+        {%for question in latest_question_list %}
+        <li>
+            <a href="{% url 'polls:detail' question.id %}">
+                {{ question.question_text }}
+            </a>
+        </li>
+        {%endfor%}
+    </ul>
     {%else%}
-        <p>No polls are available.</p>
+    <p>No polls are available.</p>
     {%endif%}
+</main>
+<footer>
+    <a href="https://platzi.com"></a>
+    <a href="#">Contacto</a>
+    <a href="#">¿Quieres ser profe</a>
+    <a href="#">Política de privacidad</a>
+    <a href="#">Términos y condiciones</a>
+</footer>
+
 </body>
 </html>
+
+
+
+
